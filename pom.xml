@@ -32,15 +32,15 @@
 				<configuration>
 				    <cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
+						<muleVersion>4.4.0-20220722</muleVersion>
 						<!-- Deploy Using Parameter  -->
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
-						<environment>${env}</environment>
-						<applicationName>${appname}</applicationName>
-						<businessGroup>${business}</businessGroup>
-						<workerType>${vCore}</workerType>
-						<workers>${workers}</workers>
+						<username>sruthi_thalluri</username>
+						<password>Stalinh504</password>
+						<environment>Sandbox</environment>
+						<applicationName>git-api</applicationName>
+						<businessGroup>Mulesoft</businessGroup>
+						<workerType>Micro</workerType>
+						<workers>1</workers>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 				
