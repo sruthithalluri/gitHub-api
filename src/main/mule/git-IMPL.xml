@@ -9,35 +9,17 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="24893f8a-d34a-4f51-a335-c42de856200b" >
 		<http:listener-connection host="0.0.0.0" port="8085" />
 	</http:listener-config>
-	<db:config name="Database_Config" doc:name="Database Config" doc:id="cf8f20f9-b07e-4466-86a7-5c203916b366" >
-		<db:my-sql-connection host="localhost" port="3306" user="root" password="root" database="mulesoft" />
-	</db:config>
 	<flow name="git-apiFlow" doc:id="1a92a3f3-3739-4de7-b94d-a3a36b649e99" >
-		<logger level="INFO" doc:name="Logger" doc:id="37cb8ed1-0017-4d02-afa8-9ba516e367c2" message='#["start of the flow"]'/>
+		<http:listener doc:name="Listener" doc:id="a14fbf01-3527-452f-a4bb-fbe3da8e1333" config-ref="HTTP_Listener_config" path="/git"/>
 		<ee:transform doc:name="Transform Message" doc:id="1e5e24b4-dfd6-434f-b6da-9feeed57079b" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
 {
-	ID: attributes.uriParams.ID
+	Message: "HI"
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<db:select doc:name="Select" doc:id="39b2198a-7139-406c-8942-ab1f71b7bbbe" config-ref="Database_Config">
-			<db:sql ><![CDATA[select * from empdetails where EMPID =:ID]]></db:sql>
-			<db:input-parameters ><![CDATA[#[{
-	ID: payload.ID
-}]]]></db:input-parameters>
-		</db:select>
-		<ee:transform doc:name="Transform Message" doc:id="0a244fe3-6826-4dec-9a70-1945082e7974" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
-output application/json
----
-payload]]></ee:set-payload>
-			</ee:message>
-		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="8d5fe746-89c3-4a6d-80e9-44ea1a2c206e" message="#[payload]"/>
 	</flow>
 </mule>
