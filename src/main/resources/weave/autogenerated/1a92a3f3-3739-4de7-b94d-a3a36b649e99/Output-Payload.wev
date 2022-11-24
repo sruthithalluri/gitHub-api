@@ -1,0 +1,13 @@
+%dw 2.0
+
+type auto_1a92a3f3_3739_4de7_b94d_a3a36b649e99_Output_Payload = {
+  EMPID: String, 
+  MIDDLENAME: String, 
+  SALARY: String, 
+  LASTNAME: String, 
+  ADDRESS: String, 
+  DESIGNATION: String, 
+  FIRSTNAME: String, 
+  _?: Any
+}
+
