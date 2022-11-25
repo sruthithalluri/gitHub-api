@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="24893f8a-d34a-4f51-a335-c42de856200b" >
-		<http:listener-connection host="0.0.0.0" port="8085" />
+		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<flow name="git-apiFlow" doc:id="1a92a3f3-3739-4de7-b94d-a3a36b649e99" >
 		<http:listener doc:name="Listener" doc:id="a14fbf01-3527-452f-a4bb-fbe3da8e1333" config-ref="HTTP_Listener_config" path="/git"/>
